@@ -77,6 +77,16 @@ app.get('/api/pedido/:id', (req, res) => {
   })
 })
 
+app.get('/api/pedido/:id/entregue', (req, res) => {
+  let id = req.params.id
+  let sql = `UPDATE pedidos SET status = 'entregue' WHERE id = '${id}'`
+  connection.query(sql, (err, result) => {
+    if (err) throw err
+    console.log(result)
+    res.send(result[0])
+  })
+})
+
 app.post('/api/pedido', (req, res) => {
   let status = 'pedido-recebido'
   // console.log(req.body.nome)
