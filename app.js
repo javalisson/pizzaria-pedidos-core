@@ -25,8 +25,12 @@ const connection = mysql.createConnection({
 })
 
 connection.connect(err => {
-  if (err) throw err
-  else console.log('Connected to database with success')
+  if (err) {
+    console.error("Falha ao conectar ao banco de dados:", err)
+    throw err
+  } else {
+    console.log('Connected to database with success')
+  }
 })
 
 app.get('/api', (req, res) => {
