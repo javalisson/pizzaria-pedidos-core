@@ -146,7 +146,7 @@ app.post('/api/pedido', (req, res) => {
     axios
       .get(`http://${miiServerHost}:${miiServerPort}/XMII/Illuminator`, {
         params: {
-          'QueryTemplate': 'Treinamento/Pizzaria/Pedido/NovoXacute',
+          'QueryTemplate': 'Treinamento-setembro/aprestes/RecebePedidoXct',
           'Param.1': novoId,
           'Param.2': nome,
           'Param.3': telefone,
