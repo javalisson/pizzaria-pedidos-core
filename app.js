@@ -81,9 +81,10 @@ app.get('/api/pedido/:id', (req, res) => {
   })
 })
 
-app.get('/api/pedido/:id/entregue', (req, res) => {
+app.post('/api/pedido/:id/altera-status/:status', (req, res) => {
   let id = req.params.id
-  let sql = `UPDATE pedidos SET status = 'entregue' WHERE id = '${id}'`
+  let status = req.params.status
+  let sql = `UPDATE pedidos SET status = '${status}' WHERE id = '${id}'`
   connection.query(sql, (err, result) => {
     if (err) throw err
     console.log(result)
